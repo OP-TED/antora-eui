@@ -1,0 +1,43 @@
+name: Release UI Bundle
+
+on:
+  # Triggers the workflow on push events for any branch
+  push:
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  release_ui_bundle:
+    runs-on: ubuntu-latest
+    name: "Build and release UI bundle"
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+    steps:
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=short_ref::$(echo ${GITHUB_REF}|sed -r 's#^refs/(heads|tags)/##g')
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js for use with actions
+        uses: actions/setup-node@v1.1.0
+        with:
+          node-version: 12.x
+
+      - name: Install NPM
+        run: npm install
+
+      - name: Create UI bundle
+        run: gulp bundle
+
+      - name: Create Release
+        id: create_release
+        uses: johnwbyrd/update-release@v1.0.0
+        with:
+          files: build/ui-bundle.zip
+          prerelease: false
+          release: ui-bundle/${{ steps.vars.outputs.short_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
