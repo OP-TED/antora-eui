@@ -1,2 +1,11 @@
 {{> header-scripts}}
-{{> header-content}}
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">
+                <img src="{{{uiRootPath}}}/img/EU_Publications_Office_TED_logo.svg" class="logo" />
+                {{site.title}}
+            </a>
+            {{> header-content}}
+    </nav>
+</header>
