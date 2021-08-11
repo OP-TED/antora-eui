@@ -7,9 +7,33 @@ footer.footer {
 }
 
 .footer p {
-  margin: 0.5rem 0;
+  margin: 0;
+  font-family: var(--footer-OP-font-family);
+  font-size: x-small;
 }
 
 .footer a {
   color: var(--footer-link-font-color);
+}
+
+.footer .columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* .footer .columns div {
+  flex-grow: 1;
+} */
+.footer h3 {
+  font-family: var(--footer-OP-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0px 0px 15px 0px;
+}
+
+.footer .logo {
+  margin: 0px;
+  height: 48px;
 }

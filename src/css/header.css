@@ -15,6 +15,7 @@ body {
   top: 0;
   width: 100%;
   z-index: var(--z-index-navbar);
+  border-bottom: 6px solid var(--color-OP-green);
 }
 
 .navbar a {
@@ -135,6 +136,12 @@ body {
   color: var(--navbar-button-font-color);
   padding: 0 0.75em;
   white-space: nowrap;
+}
+
+.navbar .logo {
+  margin-top: calc(8 / var(--rem-base) * 1rem);
+  margin-right: calc(12 / var(--rem-base) * 1rem);
+  height: calc(40 / var(--rem-base) * 1rem);
 }
 
 @media screen and (max-width: 1023.5px) {
