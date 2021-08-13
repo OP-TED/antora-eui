@@ -267,4 +267,8 @@ body {
   .navbar-dropdown a.navbar-item:hover {
     background: var(--navbar-menu_hover-background);
   }
+
+  .search {
+    border-left: 1px solid var(--color-OP-header-foreground);
+  }
 }
