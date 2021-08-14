@@ -2,7 +2,9 @@
   {{#if page.component}}
   <div class="context">
     <span class="title">{{page.component.title}}</span>
+    {{#if (not (eq page.componentVersion.version "master"))}}
     <span class="version">{{page.componentVersion.displayVersion}}</span>
+    {{/if}}
   </div>
   {{/if}}
   <ul class="components">
@@ -11,11 +13,13 @@
       <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
       <ul class="versions">
         {{#each ./versions}}
+        {{#if (not (eq this.version "master"))}}
         <li class="version
-          {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-          {{~#if (eq this ../latest)}} is-latest{{/if}}">
+            {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
+            {{~#if (eq this ../latest)}} is-latest{{/if}}">
           <a href="{{{relativize ./url}}}">{{./displayVersion}}</a>
         </li>
+        {{/if}}
         {{/each}}
       </ul>
     </li>
