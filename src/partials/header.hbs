@@ -16,9 +16,11 @@
             <div class="navbar-end">
                 <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">Home</a>
                 {{> header-content}}
-                {{!-- <div class="navbar-item search">
+                {{#if env.DOCSEARCH_ENABLED}}
+                <div class="navbar-item search">
                     <input id="search-input" type="text" placeholder="Search docs">
-                </div> --}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </nav>
