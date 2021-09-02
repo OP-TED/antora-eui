@@ -141,7 +141,7 @@ body {
 .navbar .logo {
   margin-top: calc(8 / var(--rem-base) * 1rem);
   margin-right: calc(12 / var(--rem-base) * 1rem);
-  height: calc(40 / var(--rem-base) * 1rem);
+  height: calc(60 / var(--rem-base) * 1rem);
 }
 
 @media screen and (max-width: 1023.5px) {
