@@ -25,21 +25,13 @@ jobs:
       - name: Setup Node.js for use with actions
         uses: actions/setup-node@v1.1.0
         with:
-          node-version: 12.x
+          version: 12.x
 
       - name: Install NPM
         run: npm install
 
       - name: Create UI bundle
         run: gulp bundle
-
-      - name: Delete existing release
-        uses: dev-drprasad/delete-tag-and-release@v0.2.0
-        with:
-          delete_release: true
-          tag_name: ui-bundle/${{ steps.vars.outputs.short_ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
         id: create_release
