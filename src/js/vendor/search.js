@@ -93,30 +93,73 @@ window.antoraLunr = (function (lunr) {
     return hits
   }
 
-  function createSearchResult(result, store, searchResultDataset) {
-    result.forEach(function (item) {
-      var url = item.ref
-      var hash
-      if (url.includes('#')) {
-        hash = url.substring(url.indexOf('#') + 1)
-        url = url.replace('#' + hash, '')
-      }
-      var doc = store[url]
-      var metadata = item.matchData.metadata
-      var hits = highlightHit(metadata, hash, doc)
-      searchResultDataset.appendChild(createSearchResultItem(doc, item, hits))
-    })
+  function sortObjectDescending(obj) {
+    return Object.keys(obj)
+      .sort()
+      .reverse()
+      .reduce(function (result, key) {
+        result[key] = obj[key];
+        return result;
+    }, {});
   }
 
-  function createSearchResultItem (doc, item, hits) {
+  function createSearchResult(result, store, searchResultDataset) {
+    var groups={}
+
+    result.forEach(function (item) {
+        var url=item.ref
+        var hash
+        if (url.includes('#')) {
+          hash = url.substring(url.indexOf('#') + 1)
+          url = url.replace('#' + hash, '')
+        }
+    
+        var doc = store[url] 
+        var groupName = doc.component + ' [' + doc.version + ']'
+        if (! (groupName in groups)) {
+            groups[groupName] = []
+        }
+
+        var metadata = item.matchData.metadata
+        var hits = highlightHit(metadata, hash, doc)
+
+        groups[groupName].push({ 'doc': doc, 'url': url, 'hits': hits })
+    })
+
+    for (let group in sortObjectDescending(groups)) {
+        searchResultDataset.appendChild(createSearchResultGroup(group, groups[group]))
+    }
+  }
+
+  function createSearchResultGroup(groupName, groupItems) {
+    var searchResultGroup = document.createElement('div')
+
+    var searchResultGroupName = document.createElement('div')
+    searchResultGroupName.innerText = groupName
+
+    searchResultGroup.appendChild(searchResultGroupName)
+
+    groupItems.forEach(function(item) {
+        searchResultGroup.appendChild(createSearchResultItem(item.doc, item.url, item.hits))
+    })    
+
+    return searchResultGroup
+  }
+
+  function createSearchResultItem (doc, url, hits) {
     var documentTitle = document.createElement('div')
     documentTitle.classList.add('search-result-document-title')
     documentTitle.innerText = doc.title
+    var documentName = document.createElement('div')
+    documentName.classList.add('search-result-document-hit')
+    documentName.innerText = doc.name
+    var documentHitLink = document.createElement('a')
     var documentHit = document.createElement('div')
     documentHit.classList.add('search-result-document-hit')
     var documentHitLink = document.createElement('a')
     var rootPath = basePath
-    documentHitLink.href = rootPath + item.ref
+    documentHitLink.href = rootPath + url
+    documentHit.appendChild(documentName)
     documentHit.appendChild(documentHitLink)
     hits.forEach(function (hit) {
       documentHitLink.appendChild(hit)
