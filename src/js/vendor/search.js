@@ -123,7 +123,7 @@ window.antoraLunr = (function (lunr) {
         var metadata = item.matchData.metadata
         var hits = highlightHit(metadata, hash, doc)
 
-        groups[groupName].push({ 'doc': doc, 'url': url, 'hits': hits })
+        groups[groupName].push({ 'doc': doc, 'url': item.ref, 'hits': hits })
     })
 
     for (let group in sortObjectDescending(groups)) {
