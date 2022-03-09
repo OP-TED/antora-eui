@@ -84,6 +84,19 @@
   margin-top: 0.5rem;
 }
 
+.search-result-group {
+  width: auto;
+  clear: both;
+  color: #000;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem 0.25rem 0;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  word-wrap: break-word;
+  border-bottom: 1px solid black;
+}
+
 .search-result-document-title {
   width: 33%;
   border-right: 1px solid #ddd;

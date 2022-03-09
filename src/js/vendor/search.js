@@ -135,6 +135,7 @@ window.antoraLunr = (function (lunr) {
     var searchResultGroup = document.createElement('div')
 
     var searchResultGroupName = document.createElement('div')
+    searchResultGroupName.classList.add('search-result-group')
     searchResultGroupName.innerText = groupName
 
     searchResultGroup.appendChild(searchResultGroupName)
@@ -150,16 +151,12 @@ window.antoraLunr = (function (lunr) {
     var documentTitle = document.createElement('div')
     documentTitle.classList.add('search-result-document-title')
     documentTitle.innerText = doc.title
-    var documentName = document.createElement('div')
-    documentName.classList.add('search-result-document-hit')
-    documentName.innerText = doc.name
     var documentHitLink = document.createElement('a')
     var documentHit = document.createElement('div')
     documentHit.classList.add('search-result-document-hit')
     var documentHitLink = document.createElement('a')
     var rootPath = basePath
     documentHitLink.href = rootPath + url
-    documentHit.appendChild(documentName)
     documentHit.appendChild(documentHitLink)
     hits.forEach(function (hit) {
       documentHitLink.appendChild(hit)
