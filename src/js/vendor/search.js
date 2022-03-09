@@ -115,7 +115,7 @@ window.antoraLunr = (function (lunr) {
         }
     
         var doc = store[url] 
-        var groupName = doc.component + ' [' + doc.version + ']'
+        var groupName = doc.component + ' ' + (doc.version == 'master' ? '' : doc.version )
         if (! (groupName in groups)) {
             groups[groupName] = []
         }
@@ -138,7 +138,9 @@ window.antoraLunr = (function (lunr) {
     searchResultGroupName.classList.add('search-result-group')
     searchResultGroupName.innerText = groupName
 
-    searchResultGroup.appendChild(searchResultGroupName)
+    if (!groupName.startsWith('home')) {
+        searchResultGroup.appendChild(searchResultGroupName)
+    }
 
     groupItems.forEach(function(item) {
         searchResultGroup.appendChild(createSearchResultItem(item.doc, item.url, item.hits))

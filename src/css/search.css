@@ -87,14 +87,14 @@
 .search-result-group {
   width: auto;
   clear: both;
-  color: #000;
+  color: #a4a7ae;
   font-size: 1rem;
   padding: 0.25rem 0.5rem 0.25rem 0;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   position: relative;
   word-wrap: break-word;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #ddd;
 }
 
 .search-result-document-title {
