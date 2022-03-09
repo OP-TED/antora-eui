@@ -35,9 +35,19 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: johnwbyrd/update-release@v1.0.0
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          files: build/ui-bundle.zip
+          automatic_release_tag: ui-bundle/${{ steps.vars.outputs.short_ref }}
+          files: |
+            build/ui-bundle.zip
           prerelease: false
-          release: ui-bundle/${{ steps.vars.outputs.short_ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+
+      # - name: Create UI bundle
+      #   run: gulp build
+
+      # - name: Publish UI bundle
+      #   run: mvn --batch-mode -s settings.xml deploy
+      #   env:
+      #     GITHUB_USERNAME: OP-TED
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
