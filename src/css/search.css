@@ -112,7 +112,11 @@
   flex: 1;
   font-size: 0.75em;
   color: #02060c;
-  font-weight: 700;
+  font-weight: normal;
+}
+
+.search-result-document-hit-section {
+  font-weight: bold;
 }
 
 .search-result-document-hit > a {
