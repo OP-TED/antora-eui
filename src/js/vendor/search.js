@@ -141,6 +141,7 @@ window.antoraLunr = (function (lunr) {
     var searchResultGroupName = document.createElement('div')
     searchResultGroupName.classList.add('search-result-group')
     searchResultGroupName.innerText = groupName
+    searchResultGroup.appendChild(searchResultGroupName)
 
     groupItems.forEach(function(item) {
         searchResultGroup.appendChild(createSearchResultItem(item.doc, item.url, item.hits))
