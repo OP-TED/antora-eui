@@ -103,19 +103,23 @@ window.antoraLunr = (function (lunr) {
     }, {});
   }
 
+  function isSection(url) {
+    return url.includes('#')
+  }
+
   function createSearchResult(result, store, searchResultDataset) {
     var groups={}
 
     result.forEach(function (item) {
         var url=item.ref
         var hash
-        if (url.includes('#')) {
+        if (isSection(url)) {
           hash = url.substring(url.indexOf('#') + 1)
           url = url.replace('#' + hash, '')
         }
     
         var doc = store[url] 
-        var groupName = doc.component + ' ' + (doc.version == 'master' ? '' : doc.version )
+        var groupName = doc.componentTitle + ' ' + (doc.version == 'master' ? '' : doc.version )
         if (! (groupName in groups)) {
             groups[groupName] = []
         }
@@ -137,10 +141,7 @@ window.antoraLunr = (function (lunr) {
     var searchResultGroupName = document.createElement('div')
     searchResultGroupName.classList.add('search-result-group')
     searchResultGroupName.innerText = groupName
-
-    if (!groupName.startsWith('home')) {
-        searchResultGroup.appendChild(searchResultGroupName)
-    }
+    searchResultGroup.appendChild(searchResultGroupName)
 
     groupItems.forEach(function(item) {
         searchResultGroup.appendChild(createSearchResultItem(item.doc, item.url, item.hits))
@@ -156,6 +157,10 @@ window.antoraLunr = (function (lunr) {
     var documentHitLink = document.createElement('a')
     var documentHit = document.createElement('div')
     documentHit.classList.add('search-result-document-hit')
+    if (isSection(url)) {
+      documentHit.classList.add('search-result-document-hit-section')
+    }
+
     var documentHitLink = document.createElement('a')
     var rootPath = basePath
     documentHitLink.href = rootPath + url
