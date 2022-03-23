@@ -71,6 +71,13 @@
   color: #333;
 }
 
+.search-filter {
+  position: relative;
+  background: #fff;
+  padding: 0 8px 8px;
+  color: #333;
+}
+
 .search-result-highlight {
   color: #174d8c;
   background: rgba(143, 187, 237, 0.1);

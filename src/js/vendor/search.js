@@ -3,10 +3,54 @@ window.antoraLunr = (function (lunr) {
   const scriptAttrs = document.getElementById('search-script').dataset
   const basePath = scriptAttrs.basePath
   const pagePath = scriptAttrs.pagePath
+  var currentComponent
+  var searchFilter
+  var debouncedSearch
+
   var searchInput = document.getElementById('search-input')
   var searchResult = document.createElement('div')
   searchResult.classList.add('search-result-dropdown-menu')
   searchInput.parentNode.appendChild(searchResult)
+
+  function createSearchFilter(store) {
+    var searchFilterEl = document.createElement('div')
+    searchFilterEl.classList.add('search-filter')
+
+    var searchFilterInput = document.createElement('input')
+    searchFilterInput.setAttribute('type', 'checkbox')
+    searchFilterInput.setAttribute('id', 'search_filter_all')
+    searchFilterInput.setAttribute('name', 'search_filter')
+
+    searchFilterEl.appendChild(searchFilterInput)
+    var searchFilterLabel = document.createElement('label')
+    searchFilterLabel.innerText = 'Search in all components'
+    searchFilterEl.appendChild(searchFilterLabel)
+
+    var allComponents = Object.keys(store).map(key => ({ name: store[key].component, version: store[key].version, title: store[key].componentTitle}))
+    var uniqueComponents = []
+
+    allComponents.forEach(function(component) {
+      if(!uniqueComponents.some(c => c.name == component.name)) {
+        uniqueComponents.push(component)
+
+        searchFilterInput = document.createElement('input')
+        searchFilterInput.setAttribute('type', 'checkbox')
+        searchFilterInput.setAttribute('id', 'search_filter_' + component.name)
+        searchFilterInput.setAttribute('name', 'search_filter')
+
+        if(currentComponent.name == component.name) {
+          searchFilterInput.setAttribute('checked', 'true')
+        }
+        searchFilterEl.appendChild(searchFilterInput)
+  
+        searchFilterLabel = document.createElement('label')
+        searchFilterLabel.innerText = component.title
+        searchFilterEl.appendChild(searchFilterLabel)
+      }
+    })
+
+    return searchFilterEl
+  }
 
   function highlightText (doc, position) {
     var hits = []
@@ -20,7 +64,7 @@ window.antoraLunr = (function (lunr) {
 
     var end = start + length
     var textEnd = text.length - 1
-    var contextOffset = 15
+    var contextOffset = 50
     var contextAfter = end + contextOffset > textEnd ? textEnd : end + contextOffset
     var contextBefore = start - contextOffset < 0 ? 0 : start - contextOffset
     if (start === 0 && end === textEnd) {
@@ -206,15 +250,48 @@ window.antoraLunr = (function (lunr) {
     return result
   }
 
+  function searchInComponents(index, store, text, components) {
+    var result = search(index, text)
+
+    return result.filter(function(item) {
+      item = store[item.ref]
+      return components.reduce(
+        (found, component) => found || (item && item.component == component.name),
+        false
+      )
+    })
+  }
+
   function searchIndex (index, store, text) {
     // reset search result
     while (searchResult.firstChild) {
       searchResult.removeChild(searchResult.firstChild)
     }
+
+    searchResult.appendChild(searchFilter)
+    document.getElementsByName('search_filter').forEach(function(el) {
+      el.addEventListener('change', function(e) {
+        if(e.currentTarget.id == 'search_filter_all') {
+          document.getElementsByName('search_filter').forEach(sf => sf.checked = e.currentTarget.checked)
+        } else {
+          document.getElementById('search_filter_all').checked = false
+        }
+
+        debouncedSearch()
+      })
+
+      el.addEventListener('mousedown', function (e) {
+        e.preventDefault()
+      })
+    })
+
     if (text.trim() === '') {
       return
     }
-    var result = search(index, text)
+
+    targetComponents = []
+    document.getElementsByName('search_filter').forEach(sf => sf.checked && targetComponents.push({name: sf.id.replace(/^search_filter_/,'')}))
+    var result = searchInComponents(index, store, text, targetComponents)
     var searchResultDataset = document.createElement('div')
     searchResultDataset.classList.add('search-result-dataset')
     searchResult.appendChild(searchResultDataset)
@@ -242,11 +319,13 @@ window.antoraLunr = (function (lunr) {
   }
 
   function init (data) {
+    currentComponent = { name: data.store[pagePath].component, version: data.store[pagePath].version }
+
     var index = Object.assign({index: lunr.Index.load(data.index), store: data.store})
-    var search = debounce(function () {
+    debouncedSearch = debounce(function () {
       searchIndex(index.index, index.store, searchInput.value)
     }, 100)
-    searchInput.addEventListener('keydown', search)
+    searchInput.addEventListener('keydown', debouncedSearch)
 
     // this is prevented in case of mousedown attached to SearchResultItem
     searchInput.addEventListener('blur', function (e) {
@@ -254,6 +333,8 @@ window.antoraLunr = (function (lunr) {
         searchResult.removeChild(searchResult.firstChild)
       }
     })
+
+    searchFilter = createSearchFilter(data.store)
   }
 
   return {
