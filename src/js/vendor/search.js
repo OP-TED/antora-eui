@@ -16,6 +16,8 @@ window.antoraLunr = (function (lunr) {
     var searchFilterEl = document.createElement('div')
     searchFilterEl.classList.add('search-filter')
 
+    var searchFilterSpan
+
     var searchAllSpan = document.createElement('span')
     searchAllSpan.innerText="Search in:"
     searchFilterEl.appendChild(searchAllSpan)
@@ -32,6 +34,8 @@ window.antoraLunr = (function (lunr) {
       if(!uniqueComponents.some(c => c.name == component.name)) {
         uniqueComponents.push(component)
 
+        searchFilterSpan = document.createElement('span')
+        searchFilterSpan.classList.add('search-filter-component')
         searchFilterInput = document.createElement('input')
         searchFilterInput.type = 'checkbox'
         searchFilterInput.id = 'search_filter_' + component.name
@@ -39,14 +43,18 @@ window.antoraLunr = (function (lunr) {
         if(currentComponent.name == component.name || currentComponent.name == 'home') {
           searchFilterInput.checked = 'checked'
         }
-        searchFilterEl.appendChild(searchFilterInput)
+        searchFilterSpan.appendChild(searchFilterInput)
   
         searchFilterLabel = document.createElement('label')
         searchFilterLabel.innerText = component.title
-        searchFilterEl.appendChild(searchFilterLabel)
+        searchFilterLabel.setAttribute('for', 'search_filter_' + component.name)
+        searchFilterSpan.appendChild(searchFilterLabel)
+        searchFilterEl.appendChild(searchFilterSpan)
       }
     })
 
+    searchFilterSpan = document.createElement('span')
+    searchFilterSpan.classList.add('search-filter-component')
     searchFilterInput = document.createElement('input')
     searchFilterInput.type = 'checkbox'
     searchFilterInput.id = 'search_filter_all'
@@ -55,10 +63,14 @@ window.antoraLunr = (function (lunr) {
       searchFilterInput.checked = 'true'
     }
 
-    searchFilterEl.appendChild(searchFilterInput)
+    searchFilterSpan.appendChild(searchFilterInput)
+
     searchFilterLabel = document.createElement('label')
     searchFilterLabel.innerText = 'Everywhere'
-    searchFilterEl.appendChild(searchFilterLabel)
+    searchFilterLabel.setAttribute('for', 'search_filter_all')
+    searchFilterSpan.appendChild(searchFilterLabel)
+
+    searchFilterEl.appendChild(searchFilterSpan)
 
     return searchFilterEl
   }
@@ -194,7 +206,7 @@ window.antoraLunr = (function (lunr) {
     var searchResultGroup = document.createElement('div')
 
     var searchResultGroupName = document.createElement('div')
-    searchResultGroupName.classList.add('search-result-group')
+    searchResultGroupName.classList.add('search-result-group', 'sticky')
     searchResultGroupName.innerText = groupName
     searchResultGroup.appendChild(searchResultGroupName)
 
