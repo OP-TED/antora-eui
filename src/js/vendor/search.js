@@ -16,17 +16,16 @@ window.antoraLunr = (function (lunr) {
     var searchFilterEl = document.createElement('div')
     searchFilterEl.classList.add('search-filter')
 
-    var searchFilterInput = document.createElement('input')
-    searchFilterInput.setAttribute('type', 'checkbox')
-    searchFilterInput.setAttribute('id', 'search_filter_all')
-    searchFilterInput.setAttribute('name', 'search_filter')
+    var searchAllSpan = document.createElement('span')
+    searchAllSpan.innerText="Search in:"
+    searchFilterEl.appendChild(searchAllSpan)
 
-    searchFilterEl.appendChild(searchFilterInput)
-    var searchFilterLabel = document.createElement('label')
-    searchFilterLabel.innerText = 'Search in all components'
-    searchFilterEl.appendChild(searchFilterLabel)
+    var searchFilterInput
+    var searchFilterLabel
 
-    var allComponents = Object.keys(store).map(key => ({ name: store[key].component, version: store[key].version, title: store[key].componentTitle}))
+    var allComponents = Object.keys(store)
+      .map(key => ({ name: store[key].component, version: store[key].version, title: store[key].componentTitle}))
+      .filter(component => component.name != 'home')
     var uniqueComponents = []
 
     allComponents.forEach(function(component) {
@@ -34,12 +33,11 @@ window.antoraLunr = (function (lunr) {
         uniqueComponents.push(component)
 
         searchFilterInput = document.createElement('input')
-        searchFilterInput.setAttribute('type', 'checkbox')
-        searchFilterInput.setAttribute('id', 'search_filter_' + component.name)
-        searchFilterInput.setAttribute('name', 'search_filter')
-
-        if(currentComponent.name == component.name) {
-          searchFilterInput.setAttribute('checked', 'true')
+        searchFilterInput.type = 'checkbox'
+        searchFilterInput.id = 'search_filter_' + component.name
+        searchFilterInput.name = 'search_filter'
+        if(currentComponent.name == component.name || currentComponent.name == 'home') {
+          searchFilterInput.checked = 'checked'
         }
         searchFilterEl.appendChild(searchFilterInput)
   
@@ -48,6 +46,19 @@ window.antoraLunr = (function (lunr) {
         searchFilterEl.appendChild(searchFilterLabel)
       }
     })
+
+    searchFilterInput = document.createElement('input')
+    searchFilterInput.type = 'checkbox'
+    searchFilterInput.id = 'search_filter_all'
+    searchFilterInput.name = 'search_filter'
+    if(currentComponent.name == 'home') {
+      searchFilterInput.checked = 'true'
+    }
+
+    searchFilterEl.appendChild(searchFilterInput)
+    searchFilterLabel = document.createElement('label')
+    searchFilterLabel.innerText = 'Everywhere'
+    searchFilterEl.appendChild(searchFilterLabel)
 
     return searchFilterEl
   }
