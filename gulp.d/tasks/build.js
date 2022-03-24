@@ -18,7 +18,7 @@ const postcssVar = require('postcss-custom-properties')
 const { Transform } = require('stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
 const through = () => map((file, enc, next) => next(null, file))
-const uglify = require('gulp-uglify')
+const uglify = require('gulp-uglify-es').default
 const vfs = require('vinyl-fs')
 
 module.exports = (src, dest, preview) => () => {
