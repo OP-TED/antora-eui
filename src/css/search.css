@@ -75,7 +75,13 @@
   position: relative;
   background: #fff;
   padding: 0 8px 8px;
-  color: #333;
+  font-size: 0.75em;
+  color: #02060c;
+  font-weight: normal;
+}
+
+.search-filter span {
+  display: inline-block;
 }
 
 .search-result-highlight {
