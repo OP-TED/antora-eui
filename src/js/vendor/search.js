@@ -6,11 +6,18 @@ window.antoraLunr = (function (lunr) {
   var currentComponent
   var searchFilter
   var debouncedSearch
+  var searchResultFrame
 
   var searchInput = document.getElementById('search-input')
   var searchResult = document.createElement('div')
   searchResult.classList.add('search-result-dropdown-menu')
   searchInput.parentNode.appendChild(searchResult)
+
+  function createSearchResultFrame() {
+    var element = document.createElement('div')
+    element.classList.add('search-result-frame')
+    return element;
+  }
 
   function createSearchFilter(store) {
     var searchFilterEl = document.createElement('div')
@@ -291,7 +298,8 @@ window.antoraLunr = (function (lunr) {
       searchResult.removeChild(searchResult.firstChild)
     }
 
-    searchResult.appendChild(searchFilter)
+    searchResult.appendChild(searchResultFrame)
+    searchResultFrame.appendChild(searchFilter)
     document.getElementsByName('search_filter').forEach(function(el) {
       el.addEventListener('change', function(e) {
         if(e.currentTarget.id == 'search_filter_all') {
@@ -317,7 +325,7 @@ window.antoraLunr = (function (lunr) {
     var result = searchInComponents(index, store, text, targetComponents)
     var searchResultDataset = document.createElement('div')
     searchResultDataset.classList.add('search-result-dataset')
-    searchResult.appendChild(searchResultDataset)
+    searchResultFrame.appendChild(searchResultDataset)
     if (result.length > 0) {
       createSearchResult(result, store, searchResultDataset)
     } else {
@@ -357,6 +365,7 @@ window.antoraLunr = (function (lunr) {
       }
     })
 
+    searchResultFrame = createSearchResultFrame()
     searchFilter = createSearchFilter(data.store)
   }
 
