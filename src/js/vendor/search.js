@@ -294,6 +294,9 @@ window.antoraLunr = (function (lunr) {
 
   function searchIndex (index, store, text) {
     // reset search result
+    while (searchResultFrame.firstChild) {
+      searchResultFrame.removeChild(searchResultFrame.firstChild)
+    }
     while (searchResult.firstChild) {
       searchResult.removeChild(searchResult.firstChild)
     }
@@ -360,6 +363,9 @@ window.antoraLunr = (function (lunr) {
 
     // this is prevented in case of mousedown attached to SearchResultItem
     searchInput.addEventListener('blur', function (e) {
+      while (searchResultFrame.firstChild) {
+        searchResultFrame.removeChild(searchResultFrame.firstChild)
+      }
       while (searchResult.firstChild) {
         searchResult.removeChild(searchResult.firstChild)
       }
