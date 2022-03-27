@@ -26,6 +26,7 @@ window.antoraLunr = (function (lunr) {
     var searchFilterSpan
 
     var searchAllSpan = document.createElement('span')
+    searchAllSpan.classList.add('search-filter-component')
     searchAllSpan.innerText="Search in:"
     searchFilterEl.appendChild(searchAllSpan)
 
@@ -41,45 +42,47 @@ window.antoraLunr = (function (lunr) {
       if(!uniqueComponents.some(c => c.name == component.name)) {
         uniqueComponents.push(component)
 
-        searchFilterSpan = document.createElement('span')
-        searchFilterSpan.classList.add('search-filter-component')
-        searchFilterInput = document.createElement('input')
-        searchFilterInput.type = 'checkbox'
-        searchFilterInput.id = 'search_filter_' + component.name
-        searchFilterInput.name = 'search_filter'
-        if(currentComponent.name == component.name || currentComponent.name == 'home') {
-          searchFilterInput.checked = 'checked'
-        }
-        searchFilterSpan.appendChild(searchFilterInput)
-  
-        searchFilterLabel = document.createElement('label')
-        searchFilterLabel.innerText = component.title
-        searchFilterLabel.setAttribute('for', 'search_filter_' + component.name)
-        searchFilterSpan.appendChild(searchFilterLabel)
-        searchFilterEl.appendChild(searchFilterSpan)
+        searchFilterEl.appendChild(createSearchFilterLabel(component.title, 'search_filter_' + component.name, currentComponent.name == component.name || currentComponent.name == 'home'))
       }
     })
 
-    searchFilterSpan = document.createElement('span')
-    searchFilterSpan.classList.add('search-filter-component')
-    searchFilterInput = document.createElement('input')
-    searchFilterInput.type = 'checkbox'
-    searchFilterInput.id = 'search_filter_all'
-    searchFilterInput.name = 'search_filter'
-    if(currentComponent.name == 'home') {
-      searchFilterInput.checked = 'true'
-    }
-
-    searchFilterSpan.appendChild(searchFilterInput)
-
-    searchFilterLabel = document.createElement('label')
-    searchFilterLabel.innerText = 'Everywhere'
-    searchFilterLabel.setAttribute('for', 'search_filter_all')
-    searchFilterSpan.appendChild(searchFilterLabel)
-
-    searchFilterEl.appendChild(searchFilterSpan)
+    searchFilterEl.appendChild(createSearchFilterLabel('Everywhere', 'search_filter_all', currentComponent.name == 'home'))
 
     return searchFilterEl
+
+    function createSearchFilterInput(id, checked) {
+      var inp = document.createElement('input')
+      inp.type = 'checkbox'
+      inp.id = id
+      inp.name = 'search_filter'
+      inp.checked = checked
+      inp.addEventListener('mousedown', function (e) {
+        e.preventDefault()
+      })
+      return inp
+    }
+
+    function createSearchFilterLabel(text, id, checked) {
+
+      var input = createSearchFilterInput(id, checked);
+
+      var label = document.createElement('label')
+      label.classList.add('search-filter-component')
+      label.appendChild(input)
+      label.insertAdjacentText('beforeend', text)
+      label.setAttribute('for', id)
+      label.addEventListener('mousedown', function (e) {
+        e.preventDefault()
+      })
+      label.addEventListener('click', function (e) {
+        if (this === e.target) {
+          e.preventDefault(); // prevent focus and click
+          this.control && this.control.click(); // call click on the labeled control
+      }
+      })
+
+      return label
+    }
   }
 
   function highlightText (doc, position) {
