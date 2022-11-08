@@ -9,6 +9,7 @@ window.antoraAlgolia = (function () {
     appId: apiId,
     indexName: indexName,
     inputSelector: '#search-input',
+    algoliaOptions: { hitsPerPage: 20 },
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] }
   }).autocomplete
 
