@@ -1,5 +1,5 @@
 footer.footer {
-  background-color: var(--footer-background);
+  background-color: var(--gs-base-color-eu-blue-5);
   color: var(--footer-font-color);
   font-size: calc(15 / var(--rem-base) * 1rem);
   line-height: var(--footer-line-height);
@@ -37,3 +37,242 @@ footer.footer {
   margin: 0;
   height: 48px;
 }
+/* Footer links */
+
+.gcss-op.footer-eu a {
+  text-decoration: none!important;
+}
+
+.gcss-op.footer-eu a.ls-underline {
+  text-decoration: underline!important;
+}
+.gcss-op.footer-eu a.ls-underline:hover {
+  text-decoration: none!important;
+}
+
+
+.gcss-op.footer-eu a:focus,
+.gcss-op.footer-eu ul li a:focus,
+.gcss-op.footer-eu a:focus-visible,
+.gcss-op.footer-eu ul li a:focus-visible {
+  text-decoration: none!important;
+  outline: 2px solid var(--gs-base-color-link-100)!important;
+  outline-offset: 4px;
+  border-radius: 0.015rem;
+  -moz-outline-radius: 0.015rem;
+}
+
+.gcss-op.footer-eu a:hover {
+  text-decoration: underline!important;
+  color: var(--gs-base-color-eu-blue-140)!important;
+}
+
+.gcss-op.footer-eu p,
+.gcss-op.footer-eu h2,
+.gcss-op.footer-eu h2 a,
+.gcss-op.footer-eu h3,
+.gcss-op.footer-eu h4 {
+  color: var(--gs-base-color-eu-gray-140)!important;
+}
+
+.gcss-op.footer-eu h2 a:hover {
+  color: var(--gs-base-color-eu-gray-140)!important;
+}
+
+.gcss-op.footer-eu h3 {
+  max-width:unset;
+}
+
+/* Site name */
+
+.gcss-op.footer-eu h2,
+.gcss-op.footer-eu h3 {
+  padding-bottom: .75rem;
+  margin-top:var(--gs-base-spacing-l)!important;
+  font-size: var(--gs-base-font-size-2xl)!important;
+  font-weight: var(--gs-base-font-weight-default)!important;
+}
+
+.gcss-op.footer-eu h3 {
+  border-bottom: 1px solid var(--gs-base-color-eu-blue-20);
+  margin-bottom:1rem!important;
+}
+
+.gcss-op.footer-eu h2 {
+  margin-bottom:0!important;
+}
+
+/* Site logo */
+
+.gcss-op.footer-eu .ls-footer-logo {
+  margin-bottom: var(--gs-base-spacing-s);
+  margin-top:var(--gs-base-spacing-2xl);
+}
+.gcss-op.footer-eu .ls-footer-logo picture {
+  max-height: 44px;
+  width: auto;
+}
+
+.gcss-op.footer-eu .ls-footer-logo img.ls-op {
+  max-height: 54px;
+  width: auto;
+}
+
+.gcss-op.footer-eu .ls-site-byline {
+  line-height: var(--gs-base-line-height-l)!important;
+  margin-bottom: 0;
+}
+
+.gcss-op.footer-eu ul {
+  margin: 0; /* remove from theme? */
+  padding: 0; /* remove from theme? */
+  list-style-type: none; /* remove from theme? */
+  position: relative; /* remove from theme? */
+}
+
+.gcss-op.footer-eu ul li,
+.gcss-op.footer-eu ul li a {
+  margin-bottom: var(--gs-base-spacing-s)!important;
+  line-height: var(--gs-base-line-height-m)!important;
+}
+
+.gcss-op.footer-eu ul.ls-social-media-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--gs-base-spacing-l);
+  row-gap: var(--gs-base-spacing-m);
+}
+
+.gcss-op.footer-eu ul.ls-social-media-list li,
+.gcss-op.footer-eu ul.ls-social-media-list li a {
+  margin-bottom: 0!important;
+}
+
+.gcss-op.footer-eu ul.ls-social-media-list li a i {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+
+@media screen and (min-width: 992px) {
+
+  .gcss-op .ls-footer-group {
+      column-gap: var(--gs-base-spacing-2xl)!important;
+      padding-bottom: var(--gs-base-spacing-2xl);
+  }
+
+  .gcss-op.footer-eu h2,
+  .gcss-op.footer-eu h3 {
+      margin-top:var(--gs-base-spacing-2xl)!important;
+      font-size: var(--gs-base-font-size-3xl)!important;
+  }
+
+  .gcss-op.ls-op-services-list {
+      column-count: 3;
+      /*column-gap:var(--gs-base-spacing-2xl)!important;*/ 
+  }
+
+}
+.three-columns {
+  display:flex;
+  flex-wrap: wrap;
+  background-color:#F3F6FC;
+  border-bottom: 1px solid #CFDAF5;
+  }
+
+/* columns */
+.three-columns > * {
+  padding:1rem;
+
+}
+
+/*tablet breakpoint*/
+@media screen and (min-width:769px) {
+  .three-columns {
+      display: grid;
+      grid-auto-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/* responsive EU logo change*/
+@media (min-width:769px) {
+  .ls-footer-logo {
+  content: url("https://ted.europa.eu/o/ted2-theme/images/eu/standard/logo-eu--en.svg")
+  }
+}
+
+@media (max-width:768px) {
+      .ls-footer-logo {
+      content: url("https://ted.europa.eu/o/ted2-theme/images/eu/condensed/logo-eu--en.svg")
+      }
+  }
+
+.h3-footer {
+  font-family:Arial, sans-serif !important;
+  color: #171A22 !important;
+  padding-bottom: 0.75rem;
+  /*margin-top: 1.5 rem;*/
+  font-size: 1.5rem !important;
+  font-weight: 200 !important;
+  max-width:unset;
+  border-bottom: 1px solid #CFDAF5;
+  margin-bottom: 1rem !important;
+  margin-top: 1.5rem !important;
+  font-size: 1.75rem;
+}
+
+.ul-footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  line-height: 2rem !important;
+  text-decoration: none !important;
+  text-underline-offset: 0.15em !important;
+  font-size: 0.917rem;
+  font-family:Arial, sans-serif !important;
+}
+
+.li-footer {
+  color: #0E47CB;
+  margin-bottom: 3rem 0;
+  line-height: 2rem !important;
+  text-decoration: none !important;
+  text-underline-offset: 0.15rem !important;
+  font-size: 0.917rem;
+  font-weight: 300;
+  font-family:Arial, sans-serif !important;
+  }
+
+.ul-footer li-footer {
+  margin:30px;
+  }
+
+.byline-footer {
+line-height: 1.35 !important;
+margin-bottom: 0;
+font-size: 0.917rem !important;
+font-weight: 300;
+color: #171A22 !important;
+font-family:Arial, sans-serif !important;
+}
+
+.icon-footer {
+height: 18px;
+width: 18px;
+color: #0E47CB;
+vertical-align: middle;
+display: inline;
+margin-right: 0.35rem;
+}
+
+.icon-footer-2nd {
+  height: 18px;
+  width: 18px;
+  color: #0E47CB;
+  vertical-align: middle;
+  display: inline;
+  margin-right: 0.35rem;
+  margin-left: 2rem;
+  }
+
+
