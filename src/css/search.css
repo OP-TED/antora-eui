@@ -1,11 +1,11 @@
 .navbar-brand .navbar-item + .navbar-item {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   justify-content: flex-end;
 }
 
 @media screen and (min-width: 1024px) {
   .navbar-brand {
-    flex-grow: 1;
+    flex-grow: 0;
   }
 
   .navbar-menu {
@@ -22,11 +22,13 @@
   border-radius: 0.1em;
   line-height: 1.5;
   padding: 0 0.25em;
+  height: 38px;
+  margin-right: 25px;
 }
 
 @media screen and (min-width: 769px) {
   #search-input {
-    width: 200px;
+    width: 400px;
   }
 }
 

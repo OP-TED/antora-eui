@@ -1,4 +1,191 @@
 :root {
+
+  /*** BASE FONTS ****/
+
+  /* Font families - arial */
+  --gs-base-font-family-default: arial, sans-serif;
+  --gs-base-font-family-heading: arial, sans-serif;
+
+  /* Font weights - arial */
+  --gs-base-font-weight-default: 400;
+  --gs-base-font-weight-heading: 700;
+
+  /* Font sizes */
+  --gs-base-font-size-2xs: 0.75rem;
+  /* 12px Tiny short text (1 narrow line maximum) for extra fine print. Use in extremely exceptional cases when "xs" does not suffice. */
+  --gs-base-font-size-xs: 0.813rem;
+  /* 13px Very small short text (under 3 lines) for fine print, compacted table data and UI components */
+  --gs-base-font-size-s: 0.875rem;
+  /* 14px Small body text (1-2 short paragraphs), captions, table data and UI components */
+  --gs-base-font-size-m: 1rem;
+  /* 16px Default body text (good for extended reading), captions, table data and UI components */
+  --gs-base-font-size-l: 1.125rem; /* 18px H5, large body text (good for extended reading) */
+  --gs-base-font-size-xl: 1.25rem; /* 20px H4 */
+  --gs-base-font-size-2xl: 1.5rem; /* 24px H3 */
+  --gs-base-font-size-3xl: 1.75rem; /* 28px H2 */
+  --gs-base-font-size-4xl: 2rem; /* 32px H1 */
+  --gs-base-font-size-5xl: 2.25rem; /* 36px Other extra large text */
+  --gs-base-font-size-6xl: 2.625rem; /* 42px Other extra large text */
+  --gs-base-font-size-sp-15: 0.938rem; /* 15px For UI components when you really need something in between "s" and "m". Use sparingly. */
+
+  /* Line heights */
+
+  --gs-base-line-height-xs: 1; /* buttons, navigation, and text not meant to break over a line */
+  --gs-base-line-height-s: 1.15; /* headings, introductory (lead or dek) text, no more than 1-2 sentences */
+  --gs-base-line-height-m: 1.35; /* short text (under 1 paragraph), captions, text with a very short or very long measure */
+  --gs-base-line-height-l: 1.5; /* short (1-2 paragraphs) of running text, especially with a short measure */
+  --gs-base-line-height-xl: 1.62; /* for most reading text, especially text meant for extended reading */
+  --gs-base-line-height-2xl: 1.75; /* shorter text (1-2 paragraphs) meant to be distinguished from other page text, pullquotes */
+
+  /* Spacing */
+  --gs-base-spacing-0: 0;
+  --gs-base-spacing-2xs: 0.25rem; /* 0.25rem / 4px  */
+  --gs-base-spacing-xs: 0.5rem; /* 0.5rem / 8px  */
+  --gs-base-spacing-s: 0.75rem; /* 0.75rem / 12px  */
+  --gs-base-spacing-m: 1rem; /* 1rem / 16px  */
+  --gs-base-spacing-l: 1.5rem; /* 1.5rem / 24px  */
+  --gs-base-spacing-xl: 2rem; /* 2rem / 32px  */
+  --gs-base-spacing-2xl: 2.5rem; /* 2.5rem / 40px  */
+  --gs-base-spacing-3xl: 3rem; /* 3rem / 48px  */
+  --gs-base-spacing-4xl: 4rem; /* 4rem / 64px  *
+
+  /*** colors ****/
+
+  /* main (OP) */
+  --gs-base-color-main-100: #132760; /* accessible */
+  --gs-base-color-main-75: #697188; /* accessible Link secondary */
+
+  /* sky (eurlex) */
+  --gs-base-color-eurlex-130: #005e7e;
+  /* --gs-base-color-eurlex-120: #006B8F;BEFORE */
+  --gs-base-color-eurlex-120: #00678a;
+  /* --gs-base-color-eurlex-110: #007EA8; BEFORE accessible */
+  --gs-base-color-eurlex-110: #00749b; /* accessible */
+  --gs-base-color-eurlex-100: #99cc;
+  --gs-base-color-eurlex-75: #58bcdf;
+  --gs-base-color-eurlex-50: #6adaff;
+  --gs-base-color-eurlex-25: #b8edff;
+  --gs-base-color-eurlex-10: #e0f7ff; /* bg */
+  --gs-base-color-eurlex-5: #eff9fb; /* bg */
+
+  /* fuchsia (data) */
+  --gs-base-color-data-130: #6e0a1d;
+  --gs-base-color-data-120: #b51131;
+  --gs-base-color-data-110: #de2a5e; /* accessible */
+  --gs-base-color-data-100: #f2718a;
+  --gs-base-color-data-75: #f7a7b6;
+  --gs-base-color-data-50: #f9b9c5;
+  --gs-base-color-data-25: #facbd4;
+  --gs-base-color-data-10: #fcdde3; /* bg */
+  --gs-base-color-data-5: #feeff2; /* bg */
+
+  /* forest (ted) */
+  --gs-base-color-forest-130: #1f5e00;
+  --gs-base-color-forest-120: #287928;
+  --gs-base-color-forest-110: #2c862d; /* accessible */
+  --gs-base-color-forest-100: #3399;
+  --gs-base-color-forest-75: #80de85;
+  --gs-base-color-forest-50: #bf9;
+  --gs-base-color-forest-25: #d5ffc0;
+  --gs-base-color-forest-10: #eaf8e2; /* bg */
+  --gs-base-color-forest-5: #f3fbef; /* bg */
+
+  /* earth (publications) */
+  --gs-base-color-earth-130: #954b00;
+  --gs-base-color-earth-120: #a25e1e;
+  --gs-base-color-earth-110: #ac6420; /* accessible */
+  --gs-base-color-earth-100: #f93;
+  --gs-base-color-earth-75: #ffb66e;
+  --gs-base-color-earth-50: #ffca95;
+  --gs-base-color-earth-25: #ffdebc;
+  --gs-base-color-earth-10: #fff1e4; /* bg */
+  --gs-base-color-earth-5: #fff7ee; /* bg */
+
+  /* lavender (research) */
+  --gs-base-color-lavender-130: #451244;
+  --gs-base-color-lavender-120: #641b62;
+  --gs-base-color-lavender-110: #76017a; /* accessible */
+  --gs-base-color-lavender-100: #93278f;
+  --gs-base-color-lavender-75: #d97cd6;
+  --gs-base-color-lavender-50: #e8a9e6;
+  --gs-base-color-lavender-25: #f9dbff;
+  --gs-base-color-lavender-10: #f9e7f8; /* bg */
+  --gs-base-color-lavender-5: #fdf7fd; /* bg */
+
+  /* Main whoiswho */
+  --gs-base-color-fire-130: #671908;
+  --gs-base-color-fire-120: #9e270c;
+  --gs-base-color-fire-110: #da3510; /* accessible */
+  --gs-base-color-fire-100: #ee441e;
+  --gs-base-color-fire-75: #f09187;
+  --gs-base-color-fire-50: #f8ae9e;
+  --gs-base-color-fire-25: #ffddd4;
+  --gs-base-color-fire-10: #fdede9; /* bg */
+  --gs-base-color-fire-5: #fef6f4; /* bg */
+
+  /*** Core ***
+
+  /* Gray */
+  --gs-base-color-gray-100: #333; /* accessible */
+  --gs-base-color-gray-75: #666; /* accessible */
+  --gs-base-color-gray-60: #858585; /* Borders */
+  --gs-base-color-gray-45: #a3a3a3;
+  --gs-base-color-gray-30: #c2c2c2; /* Disabled */
+  --gs-base-color-gray-20: #d8d8d8; /* line */
+  --gs-base-color-gray-15: #e0e0e0;
+  --gs-base-color-gray-10: #eee; /* bg */
+  --gs-base-color-gray-5: #f5f5f5; /* bg */
+
+  /* White */
+  --gs-base-color-white: #fff;
+
+  /* Link */
+  --gs-base-color-link-110: var(--gs-base-color-eu-blue-110); /* accessible */
+  --gs-base-color-link-100: var(--gs-base-color-eu-blue-100); /* accessible */
+  --gs-base-color-link-75: #668cd9;
+  --gs-base-color-link-50: #99b2e5;
+  --gs-base-color-link-25: #ccd9f2;
+  --gs-base-color-link-10: var(--gs-base-color-eu-blue-10); /* bg for link hover */
+  --gs-base-color-link-5: var(--gs-base-color-eu-blue-5); /* bg for link */
+
+  /*** OP ***/
+
+  /* opblue */
+  --gs-base-color-opblue-110: #002e8a;
+  --gs-base-color-opblue-100: #039;
+  --gs-base-color-opblue-75: #4066b2;
+  --gs-base-color-opblue-50: #8099cc;
+  --gs-base-color-opblue-25: #bfcce5;
+  --gs-base-color-opblue-10: #e8edf6; /* bg */
+  --gs-base-color-opblue-5: #f0f3f9; /* bg */
+
+  /* opyellow */
+  --gs-base-color-opyellow-110: #ebbc00;
+  --gs-base-color-opyellow-100: #fc0;
+  --gs-base-color-opyellow-75: #ffd940;
+  --gs-base-color-opyellow-50: #ffe580;
+  --gs-base-color-opyellow-25: #ffeda4;
+  --gs-base-color-opyellow-10: #fff5cc; /* bg */
+  --gs-base-color-opyellow-5: #fffae5; /* bg */
+
+  /* Functional */
+  --gs-base-color-error-100: #bb0202;
+  --gs-base-color-error-75: #f00;
+  --gs-base-color-highlight-100: #fffd38;
+
+  /*** EU harmonised colors ****/
+  --gs-base-color-eu-blue-5: #f3f6fc; /* bg light (default) colour: footer, containers */
+  --gs-base-color-eu-blue-10: #e7edfa; /* bg dark colour for containers */
+  --gs-base-color-eu-blue-20: #cfdaf5; /* horizontal dividers */
+  --gs-base-color-eu-blue-60: #6e91e0; /* header nav vertical divider */
+  --gs-base-color-eu-blue-80: #3e6cd5; /* button hover state */
+  --gs-base-color-eu-blue-100: #0e47cb; /* link, main nav gradient light */
+  --gs-base-color-eu-blue-110: #0d40b7; /* OP link button hover */
+  --gs-base-color-eu-blue-140: #082b7a; /* text link hover, main nav gradient dark */
+  --gs-base-color-eu-gray-80: #515560; /* site name, inactive breadcrumbs */
+  --gs-base-color-eu-gray-100: #262b38; /* form border */
+  --gs-base-color-eu-gray-140: #171a22; /* footer "black" text */
+
   /* OP colors */
   --color-OP-green: #2c862d;
   --color-OP-header-footer-background: #eee;
@@ -124,9 +311,9 @@
   --footer-line-height: var(--doc-line-height);
   --footer-background: var(--color-OP-header-footer-background);
   --footer-font-color: var(--color-gray-70);
-  --footer-link-font-color: var(--color-jet-80);
+  --footer-link-font-color: var(#0e47cb);
   /* dimensions and positioning */
-  --navbar-height: calc(63 / var(--rem-base) * 1rem);
+  --navbar-height: calc(200 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
   --drawer-height: var(--toolbar-height);
   --body-top: var(--navbar-height);

@@ -16,6 +16,8 @@ body {
   width: 100%;
   z-index: var(--z-index-navbar);
   border-bottom: 6px solid var(--color-OP-green);
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar a {
@@ -24,7 +26,6 @@ body {
 
 .navbar-brand {
   display: flex;
-  padding-left: 1rem;
 }
 
 .navbar-brand .navbar-item:first-child,
@@ -87,10 +88,9 @@ body {
 
 .navbar-item,
 .navbar-link {
-  color: var(--navbar-menu-font-color);
-  display: block;
-  line-height: var(--doc-line-height);
-  padding: 0.5rem 1rem;
+  display: flex;
+  position: relative;
+  flex: none;
 }
 
 .navbar-item.has-dropdown {
@@ -176,99 +176,175 @@ body {
   .navbar-burger {
     display: none;
   }
+}
 
-  .navbar,
-  .navbar-menu,
-  .navbar-end {
-    display: flex;
+.navbar,
+.navbar-menu,
+.navbar-end {
+  display: flex;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-end {
+  margin-left: auto;
+}
+
+.navbar-item:not(.has-dropdown),
+.navbar-link {
+  align-items: center;
+}
+
+.navbar-item.is-hoverable:hover .navbar-dropdown {
+  display: block;
+}
+
+.navbar-link::after {
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  content: "";
+  display: block;
+  height: 0.5em;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 0.5em;
+  margin-top: -0.375em;
+  right: 1.125em;
+  top: 50%;
+}
+
+.navbar-end > .navbar-item,
+.navbar-end .navbar-link {
+  color: var(--navbar-font-color);
+}
+
+.navbar-end > a.navbar-item:hover,
+.navbar-end .navbar-link:hover,
+.navbar-end .navbar-item.has-dropdown:hover .navbar-link {
+  background: var(--navbar_hover-background);
+  color: var(--navbar-font-color);
+}
+
+.navbar-end .navbar-link::after {
+  border-color: currentColor;
+}
+
+.navbar-dropdown {
+  background: var(--navbar-menu-background);
+  border: 1px solid var(--navbar-menu-border-color);
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  display: none;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  position: absolute;
+}
+
+.navbar-dropdown .navbar-item:last-child {
+  border-radius: inherit;
+}
+
+.navbar-dropdown.is-right {
+  left: auto;
+  right: 0;
+}
+
+.navbar-dropdown a.navbar-item:hover {
+  background: var(--navbar-menu_hover-background);
+}
+
+.eu-emblem {
+  width: 161px;
+  height: 45px;
+  padding: 16px, 0, 16px, 0;
+  margin-left: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.eu-emblem-std-en {
+  height: 45px;
+}
+
+@media (min-width: 769px) {
+  .eu-emblem-std-en {
+    content: url("https://ted.europa.eu/o/ted2-theme/images/eu/standard/logo-eu--en.svg");
   }
+}
 
-  .navbar-menu {
-    flex: auto;
+@media (max-width: 768px) {
+  .eu-emblem-std-en {
+    content: url("https://ted.europa.eu/o/ted2-theme/images/eu/condensed/logo-eu--en.svg");
   }
+}
 
-  .navbar-end {
-    margin-left: auto;
+.rect-grey {
+  height: 2px;
+  margin: 0 25px 0 25px;
+  background: #cfdaf5;
+}
+
+.text-eu-tenders {
+  font-family: var(--gs-base-font-family-default);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #515560;
+  margin-left: 25px;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  display: block;
+}
+
+.text-eu-subtext-text,
+.text-eu-subtext-label {
+  height: 100%;
+  margin-right: 10px;
+  font-family: var(--gs-base-font-family-default);
+  letter-spacing: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-eu-subtext-text {
+  width: hug 163px;
+  height: hug 29px;
+  gap: 10px;
+  margin-left: 25px;
+  border-left: 4px solid #390;
+  background: #f5f5f5;
+  padding: 4px 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.text-eu-subtext-label {
+  height: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 960px) {
+  .text-eu-subtext-label {
+    margin-left: 25px;
   }
+}
 
-  .navbar-item,
-  .navbar-link {
-    display: flex;
-    position: relative;
-    flex: none;
-  }
-
-  .navbar-item:not(.has-dropdown),
-  .navbar-link {
-    align-items: center;
-  }
-
-  .navbar-item.is-hoverable:hover .navbar-dropdown {
-    display: block;
-  }
-
-  .navbar-link::after {
-    border-width: 0 0 1px 1px;
-    border-style: solid;
-    content: "";
-    display: block;
-    height: 0.5em;
-    pointer-events: none;
-    position: absolute;
-    transform: rotate(-45deg);
-    width: 0.5em;
-    margin-top: -0.375em;
-    right: 1.125em;
-    top: 50%;
-  }
-
-  .navbar-end > .navbar-item,
-  .navbar-end .navbar-link {
-    color: var(--navbar-font-color);
-  }
-
-  .navbar-end > a.navbar-item:hover,
-  .navbar-end .navbar-link:hover,
-  .navbar-end .navbar-item.has-dropdown:hover .navbar-link {
-    background: var(--navbar_hover-background);
-    color: var(--navbar-font-color);
-  }
-
-  .navbar-end .navbar-link::after {
-    border-color: currentColor;
-  }
-
-  .navbar-dropdown {
-    background: var(--navbar-menu-background);
-    border: 1px solid var(--navbar-menu-border-color);
-    border-top: none;
-    border-radius: 0 0 0.25rem 0.25rem;
+@media (max-width: 768px) {
+  .text-eu-subtext-label {
     display: none;
-    top: 100%;
-    left: 0;
-    min-width: 100%;
-    position: absolute;
-  }
-
-  .navbar-dropdown .navbar-item {
-    padding: 0.5rem 3rem 0.5rem 1rem;
-    white-space: nowrap;
-  }
-
-  .navbar-dropdown .navbar-item:last-child {
-    border-radius: inherit;
-  }
-
-  .navbar-dropdown.is-right {
-    left: auto;
-    right: 0;
-  }
-
-  .navbar-dropdown a.navbar-item:hover {
-    background: var(--navbar-menu_hover-background);
-  }
-
-  .search {
-    border-left: 1px solid var(--color-OP-header-foreground);
   }
 }
