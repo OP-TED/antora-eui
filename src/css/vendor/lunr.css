@@ -56,7 +56,6 @@
   overflow: auto;
   padding: 0 8px 8px;
   color: #333;
-  flex-grow: 1;
 }
 
 .search-filter {
