@@ -1,2 +1,9 @@
     <link rel="stylesheet" href="{{{uiRootPath}}}/css/site.css">
-     <link rel="stylesheet" href="{{{uiRootPath}}}/css/custom.css">
+    <link rel="stylesheet" href="{{{uiRootPath}}}/css/custom.css">
+    {{#if env.SEARCH_ENABLED}}
+    {{#if (eq env.SEARCH_ENGINE 'lunr')}}
+    <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/lunr.css">
+    {{else if (eq env.SEARCH_ENGINE 'algolia')}}
+    <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/docsearch-2.6.3.css">
+    {{/if}}
+    {{/if}}

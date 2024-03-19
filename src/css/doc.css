@@ -65,9 +65,11 @@ h1.page + aside.toc.embedded {
   padding: 0.4rem 1rem 0.1rem;
 }
 
+/*
 .doc h3:not(.discrete) {
   font-weight: var(--alt-heading-font-weight);
 }
+*/
 
 .doc h1 .anchor,
 .doc h2 .anchor,
@@ -101,6 +103,26 @@ h1.page + aside.toc.embedded {
 .doc h5:hover .anchor,
 .doc h6:hover .anchor {
   visibility: visible;
+}
+
+.doc h2 {
+  font-size: 1.5rem;
+}
+
+.doc h3 {
+  font-size: 1.374rem;
+}
+
+.doc h4 {
+  font-size: 1.25rem;
+}
+
+.doc h5 {
+  font-size: 1.125rem;
+}
+
+.doc h6 {
+  font-size: 1rem;
 }
 
 .doc p,
@@ -147,6 +169,10 @@ h1.page + aside.toc.embedded {
   font-size: calc(16 / var(--rem-base) * 1rem);
   line-height: 1.5;
   margin: 0;
+}
+
+.doc pre code {
+  font-size: 0.7rem;
 }
 
 .doc blockquote {
@@ -204,9 +230,11 @@ h1.page + aside.toc.embedded {
   margin-top: 1.5rem;
 }
 
+/*
 .doc p.tableblock + p.tableblock {
   margin-top: 0.5rem;
 }
+*/
 
 .doc td.tableblock > .content > :first-child {
   margin-top: 0;
@@ -218,11 +246,16 @@ h1.page + aside.toc.embedded {
 }
 
 .doc table.tableblock thead th {
+  border-left: 1px solid var(--table-border-color);
+  border-right: 1px solid var(--table-border-color);
+  border-top: 1px solid var(--table-border-color);
   border-bottom: 2.5px solid var(--table-border-color);
 }
 
 .doc table.tableblock td,
 .doc table.tableblock > :not(thead) th {
+  border-left: 1px solid var(--table-border-color);
+  border-right: 1px solid var(--table-border-color);
   border-top: 1px solid var(--table-border-color);
   border-bottom: 1px solid var(--table-border-color);
 }
