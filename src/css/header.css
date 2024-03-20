@@ -1,9 +1,9 @@
 .globan {
-  z-index: 1 !important;
+  z-index: var(--z-index-globan) !important;
 }
 
 .header {
-  z-index: 2;
+  z-index: var(--z-index-header);
 }
 
 html.is-clipped--navbar {
