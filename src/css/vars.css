@@ -316,14 +316,14 @@
   --navbar-height: calc(200 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
   --drawer-height: var(--toolbar-height);
-  --body-top: var(--navbar-height);
+  --body-top: calc(var(--navbar-height) - var(--globan-height));
   --body-min-height: calc(100vh - var(--body-top));
-  --nav-height: calc(var(--body-min-height) - var(--toolbar-height));
+  --nav-height: calc(var(--body-min-height) + var(--toolbar-height));
   --nav-height--desktop: var(--body-min-height);
   --nav-panel-menu-height: calc(100% - var(--drawer-height));
   --nav-panel-explore-height: calc(50% + var(--drawer-height));
   --nav-width: calc(270 / var(--rem-base) * 1rem);
-  --toc-top: calc(var(--body-top) + var(--toolbar-height));
+  --toc-top: calc((var(--body-top) + var(--toolbar-height)));
   --toc-height: calc(100vh - var(--toc-top) - 2.5rem);
   --toc-width: calc(162 / var(--rem-base) * 1rem);
   --toc-width--widescreen: calc(216 / var(--rem-base) * 1rem);
@@ -334,6 +334,5 @@
   --z-index-toolbar: 2;
   --z-index-page-version-menu: 3;
   --z-index-navbar: 4;
-  --z-index-header: 4;
-  --z-index-globan: 3;
+  --globan-height: 1.125rem;
 }

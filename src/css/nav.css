@@ -20,8 +20,8 @@
 }
 
 .nav-container {
-  position: fixed;
-  top: var(--navbar-height);
+  position: sticky;
+  top: calc((var(--navbar-height) / 2) + var(--globan-height));
   left: 0;
   width: 100%;
   font-size: calc(17 / var(--rem-base) * 1rem);
@@ -51,8 +51,6 @@
 
 .nav {
   background: var(--nav-background);
-  position: relative;
-  top: var(--toolbar-height);
   height: var(--nav-height);
 }
 
@@ -64,7 +62,7 @@
 
 @media screen and (min-width: 1024px) {
   .nav {
-    top: var(--navbar-height);
+    top: calc((var(--navbar-height) / 2) + var(--globan-height));
     box-shadow: none;
     position: sticky;
     height: var(--nav-height--desktop);
@@ -159,7 +157,7 @@ html.is-clipped--nav {
   border: none;
   outline: none;
   line-height: inherit;
-  position: absolute;
+  position: sticky;
   height: calc(var(--nav-line-height) * 1em);
   width: calc(var(--nav-line-height) * 1em);
   margin-top: -0.05em;
@@ -179,8 +177,7 @@ html.is-clipped--nav {
   background: var(--nav-background);
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
+  position: sticky;
   right: 0;
   bottom: 0;
   left: 0;

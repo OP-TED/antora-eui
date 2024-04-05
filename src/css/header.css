@@ -1,29 +1,27 @@
-.globan {
+/* .globan {
   z-index: var(--z-index-globan) !important;
 }
 
 .header {
   z-index: var(--z-index-header);
-}
+} */
 
 html.is-clipped--navbar {
   overflow-y: hidden;
 }
 
-body {
+/* body {
   padding-top: var(--navbar-height);
-}
+} */
 
 .navbar {
   background: var(--navbar-background);
   color: var(--navbar-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
-  height: var(--navbar-height);
-  position: fixed;
-  top: 0;
+  height: calc(var(--navbar-height) / 2);
+  top: var(--globan-height);
   width: 100%;
   z-index: var(--z-index-navbar);
-  border-bottom: 6px solid var(--color-OP-green);
   display: flex;
   flex-direction: column;
 }
@@ -275,6 +273,7 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   display: inline-block;
+  overflow-y: auto;
 }
 
 .eu-emblem-std-en {
@@ -355,4 +354,18 @@ body {
   .text-eu-subtext-label {
     display: none;
   }
+}
+
+.eu-tenders {
+  position: sticky;
+  top: 1.125rem;
+  left: 0;
+  height: 100px;
+  z-index: 5;
+  border-bottom: 6px solid var(--color-OP-green);
+}
+
+.eu-flag {
+  height: 100px;
+  z-index: 6;
 }
