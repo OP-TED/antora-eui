@@ -65,14 +65,13 @@
     top: calc((var(--navbar-height) / 2) + var(--globan-height));
     box-shadow: none;
     position: sticky;
-    height: var(--nav-height--desktop);
   }
 }
 
 .nav .panels {
   display: flex;
   flex-direction: column;
-  height: inherit;
+  height: var(--nav-height--desktop);
 }
 
 html.is-clipped--nav {
@@ -181,6 +180,7 @@ html.is-clipped--nav {
   right: 0;
   bottom: 0;
   left: 0;
+  height: 50px;
 }
 
 .nav-panel-explore:not(:first-child) {
