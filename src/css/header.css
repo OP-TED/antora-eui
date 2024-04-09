@@ -162,17 +162,7 @@ html.is-clipped--navbar {
 
   .navbar-menu {
     background: var(--navbar-background);
-    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
-    overflow-y: auto;
     padding: 0.5rem 0;
-  }
-
-  .text-eu-subtext-text:not(.is-active) {
-    display: none;
-  }
-
-  .text-eu-subtext-label:not(.is-active) {
-    display: none; /* or whatever display value you want */
   }
 
   .navbar-menu a.navbar-item:hover,
