@@ -33,6 +33,9 @@
   .nav-container {
     width: var(--nav-width);
   }
+  .nav {
+    box-shadow: 0.5px 0 3px var(--nav-border-color);
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -51,20 +54,15 @@
 
 .nav {
   background: var(--nav-background);
-  position: relative;
-  top: var(--toolbar-height);
+  position: sticky;
+  top: calc((var(--navbar-height) / 2) + var(--globan-height));
   height: var(--nav-height);
 }
 
-@media screen and (min-width: 769px) {
-  .nav {
-    box-shadow: 0.5px 0 3px var(--nav-border-color);
-  }
-}
 
 @media screen and (min-width: 1024px) {
   .nav {
-    top: var(--navbar-height);
+    top: calc((var(--navbar-height) / 2) + var(--globan-height) );
     box-shadow: none;
     position: sticky;
     height: var(--nav-height--desktop);
