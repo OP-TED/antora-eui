@@ -38,12 +38,12 @@
     visibility: visible;
   }
 
-  /* .nav {
-    top: calc((var(--navbar-height) / 2) + var(--globan-height) );
+  .nav {
+    top: calc((var(--navbar-height) / 2) + var(--globan-height));
     box-shadow: none;
     position: sticky;
     height: var(--nav-height--desktop);
-  } */
+  }
 
   .navbar-brand {
     flex-grow: 1;
@@ -63,6 +63,8 @@
   position: sticky;
   top: calc((var(--navbar-height) / 2) + var(--globan-height));
   height: var(--nav-height--desktop);
+  overflow-y: auto;
+  display: flex;
 }
 
 .nav .panels {
