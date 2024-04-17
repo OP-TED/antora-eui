@@ -7,6 +7,12 @@
     padding-left: 0;
     padding-right: 0;
   }
+  /* .nav {
+    top: calc((var(--navbar-height) / 2) + var(--globan-height) + var(--toolbar-height));
+    box-shadow: 0.5px 0 3px var(--nav-border-color);
+    position: absolute;
+    height: var(--nav-height);
+  } */
 }
 
 .nav-container {
@@ -26,6 +32,7 @@
 
   .nav {
     box-shadow: 0.5px 0 3px var(--nav-border-color);
+    height: var(--nav-height);
   }
 }
 
@@ -61,7 +68,6 @@
 .nav {
   background: var(--nav-background);
   position: sticky;
-  top: calc((var(--navbar-height) / 2) + var(--globan-height));
   height: var(--nav-height--desktop);
   overflow-y: auto;
   display: flex;
