@@ -7,12 +7,13 @@
     padding-left: 0;
     padding-right: 0;
   }
-  /* .nav {
-    top: calc((var(--navbar-height) / 2) + var(--globan-height) + var(--toolbar-height));
+
+  .nav {
+    top: calc((var(--navbar-height) / 2) + var(--toolbar-height));
     box-shadow: 0.5px 0 3px var(--nav-border-color);
     position: absolute;
     height: var(--nav-height);
-  } */
+  }
 }
 
 .nav-container {
@@ -46,7 +47,7 @@
   }
 
   .nav {
-    top: calc((var(--navbar-height) / 2) + var(--globan-height));
+    top: calc(var(--navbar-height) / 2);
     box-shadow: none;
     position: sticky;
     height: var(--nav-height--desktop);
