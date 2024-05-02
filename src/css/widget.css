@@ -38,4 +38,9 @@
 .links a {
   margin: 10px 0; /* Add vertical margin */
   color: var(--color-OP-green);
+  display: block; /* Make the links block elements */
+  width: 100%; /* Make the links take up the full width of their container */
+  white-space: nowrap; /* Prevent the links from wrapping onto multiple lines */
+  overflow: hidden; /* Hide any text that overflows the links' bounding box */
+  text-overflow: ellipsis; /* Display an ellipsis when the text overflows */
 }
