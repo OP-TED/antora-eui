@@ -173,19 +173,35 @@ footer.footer {
   border-bottom: 1px solid #cfdaf5;
 }
 
+.three-columns > div:first-child {
+  flex: 0 0 20%;
+  box-sizing: border-box;
+}
+
+.three-columns > div:not(:first-child) {
+  flex: 0 0 40%;
+  box-sizing: border-box;
+}
+
 /* columns */
 .three-columns > * {
   padding: 1rem;
 }
 
 /* tablet breakpoint */
-@media screen and (min-width: 769px) {
+/* @media screen and (min-width: 769px) {
   .three-columns {
-    display: grid;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
   }
-}
+
+  .three-columns > div:first-child {
+    flex: 0 0 20%;
+  }
+
+  .three-columns > div:not(:first-child) {
+    flex: 0 0 40%;
+  }
+}  */
 
 /* responsive EU logo change */
 @media (min-width: 769px) {
