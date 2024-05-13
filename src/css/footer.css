@@ -8,7 +8,6 @@ footer.footer {
 
 .footer p {
   margin: 0;
-  font-family: var(--footer-OP-font-family);
   font-size: x-small;
 }
 
@@ -26,13 +25,6 @@ footer.footer {
 /* .footer .columns div {
   flex-grow: 1;
 } */
-.footer h3 {
-  font-family: var(--footer-OP-font-family);
-  font-size: 15px;
-  font-weight: 700;
-  margin: 0 0 15px 0;
-}
-
 .footer .logo {
   margin: 0;
   height: 48px;
@@ -171,8 +163,15 @@ footer.footer {
   flex-wrap: wrap;
   background-color: #f3f6fc;
   border-bottom: 1px solid #cfdaf5;
+  justify-content: center;
 }
 
+.three-columns > div {
+  flex: 1; /* This allows the divs to grow and shrink as needed */
+  min-width: 20%; /* This sets a minimum width for the divs */
+  box-sizing: border-box;
+  padding: 1rem;
+}
 .three-columns > div:first-child {
   flex: 0 0 20%;
   box-sizing: border-box;
@@ -188,6 +187,11 @@ footer.footer {
   padding: 1rem;
 }
 
+@media (max-width: 1024px) {
+  .three-columns {
+    flex-direction: column;
+  }
+}
 /* tablet breakpoint */
 /* @media screen and (min-width: 769px) {
   .three-columns {
@@ -280,4 +284,37 @@ footer.footer {
   display: inline;
   margin-right: 0.35rem;
   margin-left: 2rem;
+}
+
+.ted-footer__title {
+  font-size: 28px;
+  font-weight: 400;
+  color: #333333;
+  border-bottom: 1px solid #CFDAF5;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1.2;
+}
+
+
+.ted-footer__rich-text {
+  padding-right: 60px;
+  font-family: var(--gs-base-font-family-default);
+  font-weight: var(--gs-base-font-weight-default);
+}
+
+.ted-footer__rich-text p {
+  font-size: 16px;
+  color: #333333;
+}
+
+.ted-footer__rich-text a {
+  font-size: 16px;
+  color: #0E47CB;
+}
+
+.ted-footer__title.ted-footer__title--main {
+  border: unset;
+  padding: 0;
 }
