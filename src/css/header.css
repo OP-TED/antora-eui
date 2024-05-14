@@ -15,7 +15,7 @@ html.is-clipped--navbar {
 } */
 
 .navbar-scrollable {
-  background: var(--navbar-background);
+  background: var(--color-white);
   color: var(--navbar-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
   height: calc(var(--navbar-height) / 2);
@@ -27,7 +27,7 @@ html.is-clipped--navbar {
 }
 
 .navbar {
-  background: var(--navbar-background);
+  background: var(--color-white);
   color: var(--navbar-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
   height: calc(var(--navbar-height) / 2);
