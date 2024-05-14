@@ -174,7 +174,7 @@ html.is-clipped--navbar {
   }
 
   .navbar-menu {
-    background: var(--navbar-background);
+    /* background: var(--navbar-background); */
     padding: 0.5rem 0;
   }
 
