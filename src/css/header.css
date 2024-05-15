@@ -350,18 +350,18 @@ html.is-clipped--navbar {
 }
 
 .text-eu-subtext-text a {
-  text-decoration: none; /* Removes the underline */
-  color: #515560; /* Keeps the original color when not clicked */
+  text-decoration: none;
+  color: #515560;
 }
 
 .text-eu-subtext-text a:visited {
-  color: #515560; /* Keeps the original color even after the link has been visited */
+  color: #515560;
 }
 
 .text-eu-subtext-text a:hover,
 .text-eu-subtext-text a:focus,
 .text-eu-subtext-text a:active {
-  color: var(--color-OP-green); /* Changes the color when hovered, focused, or active */
+  color: var(--color-OP-green);
 }
 
 @media screen and (max-width: 960px) {
