@@ -188,9 +188,21 @@ footer.footer {
   padding: 1rem;
 }
 
+.search-institutions{
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .three-columns {
     flex-direction: column;
+  }
+
+  .institutions{
+    display: none;
+  }
+
+  .search-institutions {
+    display: block;
   }
 }
 /* tablet breakpoint */
