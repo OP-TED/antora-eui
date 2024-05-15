@@ -188,7 +188,7 @@ footer.footer {
   padding: 1rem;
 }
 
-.search-institutions{
+.search-institutions {
   display: none;
 }
 
@@ -197,7 +197,7 @@ footer.footer {
     flex-direction: column;
   }
 
-  .institutions{
+  .institutions {
     display: none;
   }
 
