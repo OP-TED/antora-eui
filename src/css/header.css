@@ -364,6 +364,30 @@ html.is-clipped--navbar {
   color: var(--color-OP-green);
 }
 
+.text-eu-subtext-label a {
+  text-decoration: none;
+  color: #515560;
+}
+
+.text-eu-subtext-label a:visited {
+  color: #515560;
+}
+
+.text-eu-tenders a {
+  text-decoration: none;
+  color: #515560;
+}
+
+.text-eu-tenders a:visited {
+  color: #515560;
+}
+
+.text-eu-subtext-label a:hover,
+.text-eu-subtext-label a:focus,
+.text-eu-subtext-label a:active {
+  color: var(--color-OP-green);
+}
+
 @media screen and (max-width: 960px) {
   .text-eu-subtext-label {
     margin-left: 25px;
