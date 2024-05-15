@@ -349,6 +349,21 @@ html.is-clipped--navbar {
   line-height: 18px;
 }
 
+.text-eu-subtext-text a {
+  text-decoration: none; /* Removes the underline */
+  color: #515560; /* Keeps the original color when not clicked */
+}
+
+.text-eu-subtext-text a:visited {
+  color: #515560; /* Keeps the original color even after the link has been visited */
+}
+
+.text-eu-subtext-text a:hover,
+.text-eu-subtext-text a:focus,
+.text-eu-subtext-text a:active {
+  color: var(--color-OP-green); /* Changes the color when hovered, focused, or active */
+}
+
 @media screen and (max-width: 960px) {
   .text-eu-subtext-label {
     margin-left: 25px;
