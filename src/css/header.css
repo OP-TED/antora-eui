@@ -173,11 +173,6 @@ html.is-clipped--navbar {
     display: flex;
   }
 
-  .navbar-menu {
-    /* background: var(--navbar-background); */
-    padding: 0.5rem 0;
-  }
-
   .navbar-menu a.navbar-item:hover,
   .navbar-menu .navbar-link:hover {
     background: var(--navbar-menu_hover-background);
@@ -394,7 +389,7 @@ html.is-clipped--navbar {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .text-eu-subtext-label {
     display: none;
   }
