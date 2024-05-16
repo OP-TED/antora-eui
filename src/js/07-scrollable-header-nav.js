@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function () {
+function adjustNav () {
   const nav = document.querySelector('.nav')
   const navMenu = document.querySelector('.nav-panel-menu')
   const navExplore = document.querySelector('.nav-panel-explore')
@@ -38,4 +38,7 @@ window.addEventListener('scroll', function () {
   // Apply the calculated height to the div
   nav.style.height = calculatedHeight + 'px'
   navMenu.style.height = divMenuHeight + 'px'
-})
+}
+
+window.addEventListener('scroll', adjustNav)
+window.addEventListener('resize', adjustNav)
