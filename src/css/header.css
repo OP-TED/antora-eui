@@ -359,6 +359,12 @@ html.is-clipped--navbar {
   color: var(--color-OP-green);
 }
 
+@media (max-width: 500px) {
+  .text-eu-subtext-text {
+    font-size: 3vw;
+  }
+}
+
 .text-eu-subtext-label a {
   text-decoration: none;
   color: #515560;
