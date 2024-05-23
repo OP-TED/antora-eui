@@ -164,10 +164,6 @@ html.is-clipped--navbar {
 }
 
 @media screen and (max-width: 1023.5px) {
-  .navbar-brand {
-    height: inherit;
-  }
-
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
