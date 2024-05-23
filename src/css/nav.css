@@ -32,6 +32,7 @@
   }
 
   .nav {
+    top: calc(var(--navbar-height) / 2);
     box-shadow: 0.5px 0 3px var(--nav-border-color);
     height: var(--nav-height);
   }
@@ -67,11 +68,12 @@
 }
 
 .nav {
-  background: var(--nav-background);
+  background: var(--color-white);
   position: sticky;
   height: var(--nav-height--desktop);
   overflow-y: auto;
   display: flex;
+  border-right: 1px solid var(--toolbar-border-color);
 }
 
 .nav .panels {
@@ -181,7 +183,7 @@ html.is-clipped--nav {
 }
 
 .nav-panel-explore {
-  background: var(--nav-background);
+  background: var(--color-white);
   display: flex;
   flex-direction: column;
   position: absolute;
