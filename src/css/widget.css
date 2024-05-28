@@ -39,3 +39,17 @@
   align-items: left;
   padding-bottom: 7px;
 }
+
+@media screen and (max-width: 1024px) {
+  .widget {
+    display: none;
+  }
+
+  .widget-title {
+    display: none;
+  }
+
+  .links {
+    display: none;
+  }
+}
