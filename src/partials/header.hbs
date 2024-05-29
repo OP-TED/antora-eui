@@ -1,34 +1,44 @@
-
 {{>header-scripts}}
 
-<header class="header">
-
-        <div class="container">
-<div>
-    <nav class="navbar">
-
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
         <div class="navbar-brand">
 
             <div class="eu-emblem" style="display: inline-block;">
                 <!-- flag and logo-->
-                <div class="eu-emblem-std-en" ><a href="https://european-union.europa.eu/index_en"><span></span></a></div>
-            </div>
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
 
+            </div>
         </div>
-         <div class="sep-frame">
+        <div class="sep-frame">
             <div class="rect-grey"></div>
         </div>
-        <div class="text-eu-tenders">EU tenders</div>
+    </nav>
 
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
         <div id="topbar-nav" class="navbar-menu">
-                    <div class="text-eu-subtext-text">TED Developer Docs</div>
-                    <div class="text-eu-subtext-label">Documentation for TED developers and eSenders</div>
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
             <div class="navbar-end">
-                    {{#if env.SEARCH_ENABLED}}
-                    <div class="navbar-item search">
-                        <input id="search-input" type="text" placeholder="Search docs">
-                    </div>
-                    {{/if}}
+                {{#if env.SEARCH_ENABLED}}
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+                {{/if}}
             </div>
         </div>
     </nav>

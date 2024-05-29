@@ -1,11 +1,25 @@
 <main class="article">
 {{> toolbar}}
   <div class="content">
-{{#if (eq page.layout '404')}}
-{{> article-404}}
-{{else}}
-{{> toc}}
-{{> article}}
-{{/if}}
+    {{#if (eq page.layout '404')}}
+    {{> article-404}}
+    {{else}}
+    {{> toc}}
+    {{> article}}
+    <div id="widgetContainer">
+      {{> widget}}
+    </div>
+    {{/if}}
   </div>
 </main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script>

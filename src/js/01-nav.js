@@ -117,8 +117,16 @@
     navToggle.classList.add('is-active')
     navContainer.classList.add('is-active')
     var bounds = nav.getBoundingClientRect()
-    var expectedHeight = window.innerHeight - Math.round(bounds.top)
-    if (Math.round(bounds.height) !== expectedHeight) nav.style.height = expectedHeight + 'px'
+
+    const toolbar = document.querySelector('.toolbar')
+    const toolbarBottom = toolbar.getBoundingClientRect().bottom
+    var expectedHeight = window.innerHeight - toolbarBottom
+    if (Math.round(bounds.height) !== expectedHeight) {
+      nav.style.height = expectedHeight + 'px'
+    }
+    nav.style.top = toolbarBottom + 'px'
+    navContainer.style.top = toolbarBottom + 'px'
+
     html.addEventListener('click', hideNav)
   }
 

@@ -2,20 +2,17 @@
   justify-content: flex-end;
 }
 
-/* @media screen and (min-width: 1024px) {
-  .navbar-brand {
-    flex-grow: 1;
-  }
-
-  .navbar-menu {
-    flex-grow: 0;
-  }
-} */
-
 @media screen and (max-width: 768px) {
   .navbar-brand .navbar-item + .navbar-item {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .nav {
+    top: calc((var(--navbar-height) / 2) + var(--toolbar-height));
+    box-shadow: 0.5px 0 3px var(--nav-border-color);
+    position: absolute;
+    height: var(--nav-height);
   }
 }
 
@@ -33,6 +30,12 @@
   .nav-container {
     width: var(--nav-width);
   }
+
+  .nav {
+    top: calc(var(--navbar-height) / 2);
+    box-shadow: 0.5px 0 3px var(--nav-border-color);
+    height: var(--nav-height);
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -43,6 +46,21 @@
     top: 0;
     visibility: visible;
   }
+
+  .nav {
+    top: calc(var(--navbar-height) / 2);
+    box-shadow: none;
+    position: sticky;
+    height: var(--nav-height--desktop);
+  }
+
+  .navbar-brand {
+    flex-grow: 1;
+  }
+
+  .navbar-menu {
+    flex-grow: 0;
+  }
 }
 
 .nav-container.is-active {
@@ -50,31 +68,21 @@
 }
 
 .nav {
-  background: var(--nav-background);
-  position: relative;
-  top: var(--toolbar-height);
-  height: var(--nav-height);
-}
-
-@media screen and (min-width: 769px) {
-  .nav {
-    box-shadow: 0.5px 0 3px var(--nav-border-color);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nav {
-    top: var(--navbar-height);
-    box-shadow: none;
-    position: sticky;
-    height: var(--nav-height--desktop);
-  }
+  background: var(--color-white);
+  position: sticky;
+  height: var(--nav-height--desktop);
+  overflow-y: auto;
+  display: flex;
+  border-right: 1px solid var(--toolbar-border-color);
 }
 
 .nav .panels {
   display: flex;
   flex-direction: column;
-  height: inherit;
+}
+
+.panels {
+  width: -webkit-fill-available;
 }
 
 html.is-clipped--nav {
@@ -83,7 +91,6 @@ html.is-clipped--nav {
 
 .nav-panel-menu {
   overflow-y: scroll;
-  height: var(--nav-panel-menu-height);
 }
 
 .nav-panel-menu:not(.is-active) .nav-menu {
@@ -176,7 +183,7 @@ html.is-clipped--nav {
 }
 
 .nav-panel-explore {
-  background: var(--nav-background);
+  background: var(--color-white);
   display: flex;
   flex-direction: column;
   position: absolute;
