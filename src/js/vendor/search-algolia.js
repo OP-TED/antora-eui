@@ -4,13 +4,15 @@ window.antoraAlgolia = (function () {
   const apiId = scriptAttrs.apiId
   const indexName = scriptAttrs.indexName
 
+  // eslint-disable-next-line no-undef
   var search = docsearch({
     apiKey: apiKey,
     appId: apiId,
     indexName: indexName,
-    inputSelector: '#search-input',
-    algoliaOptions: { hitsPerPage: 20 },
-    autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] }
+    container: '#search-input',
+    searchParameters: { hitsPerPage: 20 },
+    transformItems: function (items) {},
+    autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
   }).autocomplete
 
   search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
