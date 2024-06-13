@@ -4,6 +4,6 @@
     {{#if (eq env.SEARCH_ENGINE 'lunr')}}
     <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/lunr.css">
     {{else if (eq env.SEARCH_ENGINE 'algolia')}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/docsearch-3.6.0.css">
     {{/if}}
     {{/if}}
