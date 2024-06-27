@@ -1,6 +1,3 @@
-import docsearch from '@docsearch/js'
-import '@docsearch/css'
-
 window.antoraAlgolia = (function () {
   const scriptAttrs = document.getElementById('search-script').dataset
   const apiKey = scriptAttrs.apiKey
@@ -13,7 +10,7 @@ window.antoraAlgolia = (function () {
     appId: apiId,
     indexName: indexName,
     container: '#search-input',
-    searchParameters: { sfacetFilters: ['language:en', 'version:1.0.0'] },
+    searchParameters: { sfacetFilters: ['language:n', 'version:1.0.0'] },
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
   }).autocomplete
 
