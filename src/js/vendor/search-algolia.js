@@ -5,14 +5,12 @@ window.antoraAlgolia = (function () {
   const indexName = scriptAttrs.indexName
 
   // eslint-disable-next-line no-undef
-  var search = docsearch({
+  docsearch({
     apiKey: apiKey,
     appId: apiId,
     indexName: indexName,
     container: '#search-input',
-    searchParameters: { sfacetFilters: ['language:n', 'version:1.0.0'] },
+    searchParameters: { facetFilters: ['language:n', 'version:1.0.0'] },
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
-  }).autocomplete
-
-  search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+  })
 })()
