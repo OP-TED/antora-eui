@@ -5,7 +5,7 @@ window.antoraAlgolia = (function () {
   const indexName = scriptAttrs.indexName
 
   // eslint-disable-next-line no-undef
-  docsearch({
+  var search = docsearch({
     apiKey: apiKey,
     appId: apiId,
     indexName: indexName,
