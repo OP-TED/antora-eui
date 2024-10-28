@@ -240,7 +240,6 @@ footer.footer {
   font-weight: 200;
   max-width: unset;
   border-bottom: 1px solid #cfdaf5;
-  margin-bottom: 1rem;
   margin-top: 1.5rem;
   font-size: 1.75rem;
 }
@@ -300,7 +299,7 @@ footer.footer {
 }
 
 .ted-footer__title {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
   color: #333;
   border-bottom: 1px solid #cfdaf5;
