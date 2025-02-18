@@ -116,7 +116,6 @@ src/
   js/
     01-navigation.js
     02-fragment-jumper.js
-    07-scrollable-header-nav.js
 
     ...
     vendor/
