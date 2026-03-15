@@ -279,6 +279,33 @@ The fog comes
 on little cat feet.
 ____
 
+== Mermaid Diagrams
+
+Here is a class hierarchy rendered with Mermaid:
+
+[source,mermaid]
+----
+classDiagram
+    Expression <|-- StringExpression
+    Expression <|-- NumericExpression
+    Expression <|-- BooleanExpression
+    StringExpression <|-- StringLiteral
+    StringExpression <|-- StringPath
+    NumericExpression <|-- NumericLiteral
+    NumericExpression <|-- NumericPath
+----
+
+And a simple flowchart:
+
+[source,mermaid]
+----
+graph LR
+    A[EFX Source] --> B[ANTLR4 Parser]
+    B --> C[Parse Tree]
+    C --> D[Translator]
+    D --> E[Target Language]
+----
+
 == Fin
 
 That's all, folks!
